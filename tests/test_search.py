@@ -1,15 +1,18 @@
 #Test cover DuckDuckGo home page is displayed
 #These tests cover DuckDuckGo searches
+from selenium.webdriver.ie.webdriver import WebDriver
 
 from pages.result import DuckDuckGoResultPage
 from pages.search import DuckDuckGoSearchPage
+import pytest
+import selenium.webdriver
 
 
 
 def test_basic_duckduckgo_search(browser):
     search_page = DuckDuckGoSearchPage(browser)
     result_page = DuckDuckGoResultPage(browser)
-    PHRASE = "панда"
+    PHRASE = "panda"
 
     # Given the DuckDuckGo home page is displayed
     search_page.load()
