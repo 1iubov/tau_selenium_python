@@ -3,4 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.13" />
   </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Pipenv (tau_selenium_python)" project-jdk-type="Python SDK" />
 </project>

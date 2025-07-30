@@ -2,6 +2,11 @@
 
 from selenium.webdriver.common.by import By
 
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
+
 class DuckDuckGoResultPage:
 
     # Locators
@@ -13,9 +18,18 @@ class DuckDuckGoResultPage:
         self.browser = browser
 
     # Interaction Methods
-    def result_link_titles(self):
+    """def result_link_titles(self):
         links = self.browser.find_elements(*self.RESULT_LINKS)
         # list of titles
+        titles = [link.text for link in links]
+        return titles
+    """
+
+    def result_link_titles(self):
+        WebDriverWait(self.browser, 10).until(
+            EC.presence_of_all_elements_located(self.RESULT_LINKS)
+        )
+        links = self.browser.find_elements(*self.RESULT_LINKS)
         titles = [link.text for link in links]
         return titles
 
